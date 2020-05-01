@@ -1,0 +1,116 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/*
+Wolt colors
+*/
+
+$blue: rgb(10, 161, 225);
+$black: #202125;
+
+/*
+Dev mixins
+*/
+
+@mixin border {
+  border: 1px solid $blue;
+}
+
+/*
+Media queries
+*/
+
+@mixin phone {
+  @media only screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media only screen and (min-width: 769px) and (max-width: 1023px) {
+    @content;
+  }
+}
+
+@mixin tablet-landscape {
+  @media only screen and (min-width: 1024px) and (max-width: 1199px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media only screen and (min-width: 1200px) and (max-width: 1799px) {
+    @content;
+  }
+}
+
+@mixin big-desktop {
+  @media only screen and (min-width: 1800px) {
+    @content;
+  }
+}
+
+// Navigation
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px 25px 50px;
+  a {
+    display: block;
+    img {
+      width: 150px;
+    }
+  }
+
+  ul {
+    padding: none;
+    list-style: none;
+    display: flex;
+    li {
+      padding: 10px 25px;
+    }
+  }
+}
+
+// Restaurants container
+
+.container {
+  width: 90vw;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  // Restaurant item
+  > div {
+    @include border;
+    width: 30%;
+    margin-bottom: 25px;
+
+    > div {
+      padding: 10px 5px;
+
+      p {
+        color: #c3c3c3;
+      }
+    }
+
+    img {
+      width: 100%;
+      object-fit: cover;
+      height: 200px;
+    }
+  }
+}
