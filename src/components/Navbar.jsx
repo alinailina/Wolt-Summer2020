@@ -9,9 +9,9 @@ const Navbar = () => {
         </span>
       </a>
       <ul>
-        <li>Wolt</li>
-        <li>Wolt</li>
-        <li>Wolt</li>
+        <li>Home</li>
+        <li>About</li>
+        <li>Contact</li>
       </ul>
     </nav>
   );

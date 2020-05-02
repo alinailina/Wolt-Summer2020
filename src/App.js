@@ -1,12 +1,17 @@
 import React from "react";
-import Restaurants from "./components/Restaurants";
+
 import Navbar from "./components/Navbar";
+import Restaurants from "./components/Restaurants";
+
+import DataContextProvider from "./contexts/DataContext";
 
 function App() {
   return (
     <div>
       <Navbar />
-      <Restaurants />
+      <DataContextProvider>
+        <Restaurants />
+      </DataContextProvider>
     </div>
   );
 }

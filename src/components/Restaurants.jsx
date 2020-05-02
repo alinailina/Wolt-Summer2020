@@ -1,28 +1,27 @@
-import React, { useState, useEffect } from "react";
-import Axios from "axios";
+import React from "react";
+import { DataContext } from "../contexts/DataContext";
 import Restaurant from "./Restaurant";
 
 const Restaurants = () => {
-  const [restaurants, setRestaurants] = useState([]);
-
-  useEffect(() => {
-    getRestaurants();
-  }, []);
-
-  const getRestaurants = async () => {
-    await Axios.get(
-      "https://raw.githubusercontent.com/woltapp/summer2020/master/restaurants.json"
-    ).then((response) => setRestaurants(response.data.restaurants));
-  };
-
-  // console.log(restaurants);
+  // console.log(DataContext);
 
   return (
-    <div className="container">
-      {restaurants.map((restaurant, i) => (
-        <Restaurant key={i} {...restaurant} />
-      ))}
-    </div>
+    <DataContext.Consumer>
+      {(DataContext) => {
+        // console.log(DataContext);
+        const { restaurants } = DataContext;
+        // console.log(restaurants);
+        if (restaurants) {
+          return (
+            <div className="container">
+              {restaurants.map((restaurant, i) => (
+                <Restaurant key={i} {...restaurant} />
+              ))}
+            </div>
+          );
+        }
+      }}
+    </DataContext.Consumer>
   );
 };
 

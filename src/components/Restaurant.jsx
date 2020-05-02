@@ -1,7 +1,7 @@
 import React from "react";
 
 const Restaurant = (props) => {
-  console.log(props);
+  // console.log(props);
   return (
     <div>
       <img src={props.image} alt="" />
