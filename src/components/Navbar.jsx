@@ -1,18 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ThemeContext } from "../contexts/ThemeContext";
 
-const Navbar = () => {
+// Children
+import ToolBar from "./Toolbar";
+
+const Navbar = (props) => {
+  const theme = useContext(ThemeContext);
+  console.log(theme);
   return (
-    <nav>
-      <a href="/">
-        <span>
-          <img src={require("../assets/wolt.png")} alt="wolt-logo" />
-        </span>
-      </a>
-      <ul>
-        <li>Home</li>
-        <li>About</li>
-        <li>Contact</li>
-      </ul>
+    <nav style={{ background: theme.background, color: theme.color }}>
+      <div>
+        <a href="/">
+          <span>
+            <img
+              style={{ filter: theme.filter }}
+              src={require("../assets/wolt.png")}
+              alt="wolt-logo"
+            />
+          </span>
+        </a>
+        <input type="text" placeholder="Search" />
+      </div>
+      <ToolBar />
     </nav>
   );
 };

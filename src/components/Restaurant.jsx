@@ -1,14 +1,12 @@
 import React from "react";
 
-const Restaurant = (props) => {
-  // console.log(props);
+const Restaurant = ({ image, name, description }) => {
   return (
     <div>
-      <img src={props.image} alt="" />
+      <img src={image} alt="" />
       <div>
-        {" "}
-        <h3>{props.name}</h3>
-        <p>{props.description}</p>
+        <h3>{name}</h3>
+        <p>{description}</p>
       </div>
     </div>
   );

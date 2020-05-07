@@ -1,27 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { DataContext } from "../contexts/DataContext";
-import Restaurant from "./Restaurant";
+
+// Children
+import Restaurant from "../components/Restaurant";
 
 const Restaurants = () => {
-  // console.log(DataContext);
-
+  const restaurants = useContext(DataContext);
+  console.log(restaurants);
   return (
-    <DataContext.Consumer>
-      {(DataContext) => {
-        // console.log(DataContext);
-        const { restaurants } = DataContext;
-        // console.log(restaurants);
-        if (restaurants) {
-          return (
-            <div className="container">
-              {restaurants.map((restaurant, i) => (
-                <Restaurant key={i} {...restaurant} />
-              ))}
-            </div>
-          );
-        }
-      }}
-    </DataContext.Consumer>
+    <div className="container">
+      {restaurants.map((restaurant, i) => (
+        <Restaurant {...restaurant} />
+      ))}
+    </div>
   );
 };
 
